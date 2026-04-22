@@ -15,17 +15,12 @@ class HomeViewController: UIViewController
     @IBOutlet weak var settingsButton: UIButton!
     
     
-    var xColor: UIColor? //nil coalece to Red
-    var oColor: UIColor? //nil coalece to Blue
     
     
     @IBAction func playButtonTapped(_ sender: Any)
     {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "Tic Tac Toe") as! TicTacToeViewController
-        
-        vc.xColor = self.xColor ?? .red
-        vc.xColor = self.xColor ?? .blue
         
         navigationController?.setViewControllers([vc], animated: false)
     }
@@ -35,7 +30,20 @@ class HomeViewController: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setNeedsStatusBarAppearanceUpdate()
-        settingsButton.setImage(UIImage(systemName: "gearshape.fill")?.withTintColor(.gray), for: .normal)
+        settingsButton.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
+        settingsButton.tintColor = .gray
     }
 }
 
+class gamesManager
+{
+    static let shared = gamesManager()
+    
+    private init() {}
+    
+    var xColor: UIColor = .red
+    var oColor: UIColor = .blue
+    
+    var xGamePts = 0
+    var oGamePts = 0
+}

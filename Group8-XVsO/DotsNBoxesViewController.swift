@@ -10,11 +10,14 @@ import UIKit
 class DotsNBoxesViewController: UIViewController {
 
     @IBOutlet weak var settingsButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
         // Do any additional setup after loading the view.
-        settingsButton.setImage(UIImage(systemName: "gearshape.fill")?.withTintColor(.gray), for: .normal)
+        settingsButton.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
+        settingsButton.tintColor = .gray
     }
     
     
