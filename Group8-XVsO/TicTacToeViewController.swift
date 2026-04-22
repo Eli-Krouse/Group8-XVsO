@@ -51,6 +51,7 @@ class TicTacToeViewController: UIViewController {
     var xColor: UIColor? // nill coalece to red
     var oColor: UIColor? // nil coalece to blue
     
+    @IBOutlet weak var settingsButton: UIButton!
     
     
     @IBAction func TTTBoardTapped(_ sender: Any)
@@ -63,10 +64,12 @@ class TicTacToeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setNeedsStatusBarAppearanceUpdate()
         // Do any additional setup after loading the view.
+        settingsButton.setImage(UIImage(systemName: "gearshape.fill")?.withTintColor(.gray), for: .normal)
     }
     
+
 
     
     

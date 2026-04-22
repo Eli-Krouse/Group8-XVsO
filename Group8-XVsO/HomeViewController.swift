@@ -12,6 +12,9 @@ class HomeViewController: UIViewController
     
     @IBOutlet weak var playButton: UIButton!
     
+    @IBOutlet weak var settingsButton: UIButton!
+    
+    
     var xColor: UIColor? //nil coalece to Red
     var oColor: UIColor? //nil coalece to Blue
     
@@ -31,8 +34,8 @@ class HomeViewController: UIViewController
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setNeedsStatusBarAppearanceUpdate()
+        settingsButton.setImage(UIImage(systemName: "gearshape.fill")?.withTintColor(.gray), for: .normal)
     }
-
-
 }
 

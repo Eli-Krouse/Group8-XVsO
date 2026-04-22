@@ -15,11 +15,19 @@ class SettingsViewController: UIViewController
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setNeedsStatusBarAppearanceUpdate()
         // Do any additional setup after loading the view.
     }
+    
+    
+    override var prefersStatusBarHidden: Bool
+    {
+        return true
+    }
+    
     
     /*
     // MARK: - Navigation
@@ -59,9 +67,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource
             cell.textLabel?.text = gameplaySettings[indexPath.row]
         default:
             break
-            
         }
-
+        cell.accessoryType = .disclosureIndicator
+        
         return cell
     }
     
@@ -72,6 +80,25 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        var vc: UIViewController?
+        switch(indexPath.section)
+        {
+        case 0:
+             vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: generalSettings[indexPath.row] + " Settings")
+        case 1:
+            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: gameplaySettings[indexPath.row] + " Settings")
+        default:
+            break
+        }
+        
+        if let vc = vc
+        {
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
         
     }
 }
+

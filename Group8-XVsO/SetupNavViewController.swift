@@ -5,4 +5,12 @@
 //  Created by Krouse, William E. on 4/21/26.
 //
 
-import Foundation
+import UIKit
+
+class SetupNavViewController: UINavigationController
+{
+    override var prefersStatusBarHidden: Bool
+    {
+        return true
+    }
+}
