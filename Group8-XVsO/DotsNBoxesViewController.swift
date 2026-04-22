@@ -12,6 +12,9 @@ class DotsNBoxesViewController: UIViewController {
     @IBOutlet weak var settingsButton: UIButton!
     
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()

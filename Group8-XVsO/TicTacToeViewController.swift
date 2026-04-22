@@ -9,7 +9,10 @@ import UIKit
 
 class TicTacToeViewController: UIViewController {
     
-
+    @IBOutlet weak var playerONameLabel: UILabel!
+    
+    @IBOutlet weak var playerXNameLabel: UILabel!
+    
     @IBOutlet var xPts: [UIImageView]!
     
     @IBOutlet var oPts: [UIImageView]!
@@ -81,6 +84,9 @@ class TicTacToeViewController: UIViewController {
         settingsButton.tintColor = .gray
         gamePointOLabel.text = String(gamesManager.shared.oGamePts)
         gamePointXLabel.text = String(gamesManager.shared.xGamePts)
+        
+        playerONameLabel.textColor = gamesManager.shared.oColor
+        playerXNameLabel.textColor = gamesManager.shared.xColor
     }
     
 

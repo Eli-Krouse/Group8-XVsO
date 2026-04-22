@@ -5,4 +5,16 @@
 //  Created by Krouse, William E. on 4/22/26.
 //
 
-import Foundation
+import UIKit
+
+class EndGameViewController: UIViewController
+{
+    
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        setNeedsStatusBarAppearanceUpdate()
+        
+    }
+}

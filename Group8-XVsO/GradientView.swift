@@ -10,7 +10,7 @@ import UIKit
 class GradientView: UIView
 {
     private let gradientLayer = CAGradientLayer()
-    private var colors: [UIColor] = [.red, .blue]
+    private var colors: [UIColor] = [gamesManager.shared.oColor, gamesManager.shared.xColor]
     {
         didSet
         {
@@ -40,9 +40,10 @@ class GradientView: UIView
         layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    private func updateColors()
+    func updateColors()
     {
-        gradientLayer.colors = colors.map { $0.cgColor }
+        //gradientLayer.colors = colors.map { $0.cgColor }
+        colors = [gamesManager.shared.oColor, gamesManager.shared.xColor]
     }
 
     override func layoutSubviews() {

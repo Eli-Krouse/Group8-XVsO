@@ -14,7 +14,9 @@ class HomeViewController: UIViewController
     
     @IBOutlet weak var settingsButton: UIButton!
     
+    @IBOutlet weak var xTitleLabel: UILabel!
     
+    @IBOutlet weak var oTitleLabel: UILabel!
     
     
     @IBAction func playButtonTapped(_ sender: Any)
@@ -32,6 +34,9 @@ class HomeViewController: UIViewController
         setNeedsStatusBarAppearanceUpdate()
         settingsButton.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
         settingsButton.tintColor = .gray
+        
+        xTitleLabel.textColor = gamesManager.shared.xColor
+        oTitleLabel.textColor = gamesManager.shared.oColor
     }
 }
 
@@ -42,8 +47,17 @@ class gamesManager
     private init() {}
     
     var xColor: UIColor = .red
+
     var oColor: UIColor = .blue
     
     var xGamePts = 0
     var oGamePts = 0
+    
+    var maxRounds = 1
+    var currentRound = 1
+}
+
+extension NSNotification.Name
+{
+    static let updatedGradient = NSNotification.Name("updatedGradient")
 }
