@@ -17,7 +17,9 @@ class SpeedTestViewController: BaseViewController {
     
     @IBOutlet weak var playerXNameLabel: UILabel!
     
+    @IBOutlet weak var gamePointOLabel: UILabel!
     
+    @IBOutlet weak var gamePointXLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,10 @@ class SpeedTestViewController: BaseViewController {
         // Do any additional setup after loading the view.
         settingsButton.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
         settingsButton.tintColor = .gray
+        
+        gamePointOLabel.text = String(gamesManager.shared.oGamePts)
+        gamePointXLabel.text = String(gamesManager.shared.xGamePts)
+        
     }
     
 

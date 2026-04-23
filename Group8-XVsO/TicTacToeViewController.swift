@@ -52,7 +52,7 @@ class TicTacToeViewController: BaseViewController {
         
         // update UI
         button.setTitle(currentPlayer.rawValue, for: .normal)
-        button.tintColor = currentPlayer.color
+        button.backgroundColor = currentPlayer.color
 
         // check win
         if(didWinMinigame(for: currentPlayer.rawValue))
@@ -88,8 +88,7 @@ class TicTacToeViewController: BaseViewController {
         gamePointOLabel.text = String(gamesManager.shared.oGamePts)
         gamePointXLabel.text = String(gamesManager.shared.xGamePts)
         
-        playerONameLabel.textColor = gamesManager.shared.oColor
-        playerXNameLabel.textColor = gamesManager.shared.xColor
+        reset()
     }
     
 
@@ -134,7 +133,8 @@ class TicTacToeViewController: BaseViewController {
         {
             button.setTitle("", for: .normal)
             button.isUserInteractionEnabled = true
-            button.tintColor = .gray
+            button.backgroundColor = .gray
+            button.configuration = nil
         }
         titleBoard = Array(repeating: "", count: 9)
         currentPlayer = .x
@@ -167,6 +167,21 @@ class TicTacToeViewController: BaseViewController {
         BGGradientView.updateColors()
         playerXNameLabel.textColor = gamesManager.shared.xColor
         playerONameLabel.textColor = gamesManager.shared.oColor
+        
+
+        for (index, button) in board.enumerated()
+        {
+           switch(titleBoard[index])
+            {
+           case "X":
+               button.backgroundColor = gamesManager.shared.xColor
+           case "O":
+               button.backgroundColor = gamesManager.shared.oColor
+           default:
+               button.backgroundColor = .gray
+           }
+
+        }
     }
 
 }
@@ -180,8 +195,8 @@ enum Player: String
     {
         switch(self)
         {
-            case .x: return .red
-            case .o: return .blue
+            case .x: return gamesManager.shared.xColor
+            case .o: return gamesManager.shared.oColor
         }
     }
 }

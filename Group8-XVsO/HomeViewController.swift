@@ -34,9 +34,6 @@ class HomeViewController: BaseViewController
         setNeedsStatusBarAppearanceUpdate()
         settingsButton.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
         settingsButton.tintColor = .gray
-        
-        playButton.titleLabel?.textColor = .black
-        playButton.tintColor = .white
     }
     
     override func applyGradient() {

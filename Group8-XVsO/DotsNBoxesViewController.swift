@@ -18,12 +18,21 @@ class DotsNBoxesViewController: BaseViewController {
     @IBOutlet var BGGradientView: GradientView!
     
     
+    @IBOutlet weak var gamePointOLabel: UILabel!
+    
+    @IBOutlet weak var gamePointXLabel: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
         // Do any additional setup after loading the view.
         settingsButton.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
         settingsButton.tintColor = .gray
+        gamePointOLabel.text = String(gamesManager.shared.oGamePts)
+        gamePointXLabel.text = String(gamesManager.shared.xGamePts)
+        
     }
     
     
