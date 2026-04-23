@@ -225,6 +225,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="circlebadge" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Lhn-2f-MiI">
+                                <rect key="frame" x="241" y="169" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="triangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="P7r-JS-fg2">
+                                <rect key="frame" x="160" y="170" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
+                                        <real key="value" value="3.1419999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="squareshape" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VN7-2f-FrB">
+                                <rect key="frame" x="68" y="171" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="circlebadge" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="orf-gi-5N1">
+                                <rect key="frame" x="68" y="618" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="squareshape" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jbA-bb-fFp">
+                                <rect key="frame" x="249" y="620" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="triangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mb9-Uz-kEQ">
+                                <rect key="frame" x="160" y="618" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
+                                        <real key="value" value="3.1419999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eaJ-Ec-OKP">
                                 <rect key="frame" x="97" y="730" width="200" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -429,6 +469,69 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBh-NE-kZk">
+                                <rect key="frame" x="160" y="170" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
+                                        <real key="value" value="3.1419999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ja4-83-upz">
+                                <rect key="frame" x="241" y="170" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
+                                        <real key="value" value="3.1419999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbM-Zv-Zt4">
+                                <rect key="frame" x="68" y="170" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
+                                        <real key="value" value="3.1419999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADR-yq-M5B">
+                                <rect key="frame" x="159" y="621" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Suh-AV-s2O">
+                                <rect key="frame" x="68" y="621" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRA-Tk-ILB">
+                                <rect key="frame" x="249" y="621" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ei6-PV-ULm"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -438,10 +541,38 @@
                         <outlet property="BGGradientView" destination="i1P-Q4-uRf" id="fzZ-ZT-rbt"/>
                         <outlet property="gamePointOLabel" destination="isE-jo-524" id="BgH-n7-jfi"/>
                         <outlet property="gamePointXLabel" destination="4Bb-kN-nfs" id="ezA-3D-eFl"/>
+                        <outlet property="o1" destination="Lhn-2f-MiI" id="SkV-wn-jwI"/>
+                        <outlet property="o2" destination="P7r-JS-fg2" id="Q42-Kd-Vf5"/>
+                        <outlet property="o3" destination="VN7-2f-FrB" id="Is1-9r-lpG"/>
+                        <outlet property="oCircleButton" destination="Ja4-83-upz" id="krt-Ze-w8Y"/>
+                        <outlet property="oSquareButton" destination="RbM-Zv-Zt4" id="bLn-0O-nlY"/>
+                        <outlet property="oTriangleButton" destination="VBh-NE-kZk" id="mcW-lJ-Uft"/>
                         <outlet property="playerONameLabel" destination="b4f-YP-hYH" id="y73-KL-bwU"/>
                         <outlet property="playerXNameLabel" destination="GEK-cj-Xlx" id="aQw-Au-bXh"/>
                         <outlet property="revealImage" destination="JUh-9j-a34" id="Gra-Hn-zT4"/>
                         <outlet property="settingsButton" destination="dpU-iZ-dlD" id="PVw-bJ-5gs"/>
+                        <outlet property="x1" destination="orf-gi-5N1" id="BpN-gl-NBS"/>
+                        <outlet property="x2" destination="mb9-Uz-kEQ" id="exb-mk-Yrz"/>
+                        <outlet property="x3" destination="jbA-bb-fFp" id="XdK-Zs-2iG"/>
+                        <outlet property="xCircleButton" destination="Suh-AV-s2O" id="oNf-eT-b9I"/>
+                        <outlet property="xSquareButton" destination="gRA-Tk-ILB" id="qZs-6f-avD"/>
+                        <outlet property="xTriangleButton" destination="ADR-yq-M5B" id="aqn-TX-sQS"/>
+                        <outletCollection property="xMinigamePoints" destination="3Ha-i7-JFC" collectionClass="NSMutableArray" id="6NV-s6-VK2"/>
+                        <outletCollection property="xMinigamePoints" destination="B1m-tg-DbY" collectionClass="NSMutableArray" id="dI3-BA-jPk"/>
+                        <outletCollection property="xMinigamePoints" destination="ktX-Wa-kqW" collectionClass="NSMutableArray" id="6Xb-Qy-t5t"/>
+                        <outletCollection property="xMinigamePoints" destination="b67-JZ-EFn" collectionClass="NSMutableArray" id="d8q-1T-etS"/>
+                        <outletCollection property="xMinigamePoints" destination="mTB-kb-4Ue" collectionClass="NSMutableArray" id="DHU-3V-xmC"/>
+                        <outletCollection property="xMinigamePoints" destination="MBm-gc-o74" collectionClass="NSMutableArray" id="dJ0-c5-Ook"/>
+                        <outletCollection property="xMinigamePoints" destination="VTN-T3-irP" collectionClass="NSMutableArray" id="24u-Pq-bwM"/>
+                        <outletCollection property="xMinigamePoints" destination="Ejs-4F-1ej" collectionClass="NSMutableArray" id="Z6p-NJ-CdP"/>
+                        <outletCollection property="oMinigamePoints" destination="Yaw-ba-VEW" collectionClass="NSMutableArray" id="GHj-qK-CJU"/>
+                        <outletCollection property="oMinigamePoints" destination="xHZ-QH-pOw" collectionClass="NSMutableArray" id="u7S-HO-G8S"/>
+                        <outletCollection property="oMinigamePoints" destination="mdm-ok-ezY" collectionClass="NSMutableArray" id="S0a-g0-tST"/>
+                        <outletCollection property="oMinigamePoints" destination="cmz-aG-geF" collectionClass="NSMutableArray" id="mz8-e9-mtL"/>
+                        <outletCollection property="oMinigamePoints" destination="oI0-h7-CE9" collectionClass="NSMutableArray" id="dB6-fs-myJ"/>
+                        <outletCollection property="oMinigamePoints" destination="Gxd-ri-raa" collectionClass="NSMutableArray" id="l0a-I2-ST6"/>
+                        <outletCollection property="oMinigamePoints" destination="9vn-d6-dfZ" collectionClass="NSMutableArray" id="fgk-KD-MOL"/>
+                        <outletCollection property="oMinigamePoints" destination="2Do-KB-ZeW" collectionClass="NSMutableArray" id="Bi2-gU-tqt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yzy-bi-b7w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2007,6 +2138,8 @@
         <image name="circlebadge" catalog="system" width="128" height="122"/>
         <image name="dot.circle.fill" catalog="system" width="128" height="123"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="squareshape" catalog="system" width="128" height="114"/>
+        <image name="triangle" catalog="system" width="128" height="109"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

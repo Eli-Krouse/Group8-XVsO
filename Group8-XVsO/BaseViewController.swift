@@ -23,11 +23,15 @@ class BaseViewController: UIViewController
     
     @objc func applyGradient(){}
     
+    func waitTime(_ seconds: Double)
+    {
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds){}
+    }
+    
     deinit
     {
         center.removeObserver(self)
     }
-
 }
 
 class gamesManager

@@ -24,6 +24,36 @@ class SpeedTestViewController: BaseViewController {
     @IBOutlet weak var revealImage: UIImageView!
     
     
+    @IBOutlet var xMinigamePoints: [UIImageView]!
+    
+    @IBOutlet var oMinigamePoints: [UIImageView]!
+    
+    @IBOutlet weak var o1: UIImageView!
+    
+    @IBOutlet weak var o2: UIImageView!
+    
+    @IBOutlet weak var o3: UIImageView!
+    
+    @IBOutlet weak var x1: UIImageView!
+    
+    @IBOutlet weak var x2: UIImageView!
+    
+    @IBOutlet weak var x3: UIImageView!
+    
+    
+    @IBOutlet weak var oCircleButton: UIButton!
+    
+    @IBOutlet weak var oTriangleButton: UIButton!
+    
+    @IBOutlet weak var oSquareButton: UIButton!
+    
+    @IBOutlet weak var xCircleButton: UIButton!
+    
+    @IBOutlet weak var xTriangleButton: UIButton!
+    
+    @IBOutlet weak var xSquareButton: UIButton!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +65,7 @@ class SpeedTestViewController: BaseViewController {
         gamePointOLabel.text = String(gamesManager.shared.oGamePts)
         gamePointXLabel.text = String(gamesManager.shared.xGamePts)
         
+        showShape()
     }
     
 
@@ -44,4 +75,14 @@ class SpeedTestViewController: BaseViewController {
         playerONameLabel.textColor = gamesManager.shared.oColor
     }
 
+    
+    func showShape()
+    {
+        let shapeRand = Int.random(in: 0...2)
+        revealImage.image = UIImage(systemName: "circle.fill")
+        let seconds = Double.random(in: 1...3)
+        waitTime(seconds)
+        self.revealImage.isHidden = false
+    }
+    
 }
