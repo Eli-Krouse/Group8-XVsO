@@ -62,6 +62,11 @@ class SpeedTestViewController: BaseViewController {
     @IBOutlet var xButtonCollection: [UIButton]!
     
     
+    lazy var xDict: [UIButton: UIImageView] = [xCircleButton: x1, xTriButton: x2, xSqrButton: x3]
+    lazy var oDict: [UIButton: UIImageView] = [oCircleButton: o1, oTriButton: o2, oSqrButton: o3]
+    
+    
+    
     @IBAction func oButtonTapped(_ sender: Any)
     {
         guard let button = sender as? UIButton else
@@ -88,16 +93,21 @@ class SpeedTestViewController: BaseViewController {
         
         if(isCorrectGuess)
         {
+            makeUninteractable(for: .x)
+            makeUninteractable(for: .o)
+            
             giveMiniPoint(to: player)
             updateMinigamePointUI(for: player)
             updateButtonUI(button, for: player, with: .green)
-            waitTime(2){}
-            reset()
+            waitTime(2){
+                self.reset()
+            }
             
             if(didWinMiniGame(for: player))
             {
                 checkGameEnding()
             }
+            
         }else
         {
             makeUninteractable(for: player)
@@ -175,9 +185,7 @@ class SpeedTestViewController: BaseViewController {
     
     func updateButtonUI(_ button: UIButton, for player: Player, with color: UIColor)
     {
-        let imageGuessed: [UIButton: UIImageView] = player == .x ? [xCircleButton: x1, xTriButton: x2, xSqrButton: x3] : [oCircleButton: o1, oTriButton: o2, oSqrButton: o3]
-        
-        guard let image = imageGuessed[button] else
+        guard let image = (player == .x ? xDict : oDict)[button] else
         {
             return
         }
@@ -225,8 +233,9 @@ class SpeedTestViewController: BaseViewController {
         let shapePossibilities = ["circle.fill", "triangle.fill", "square.fill"]
         let revealImage = shapePossibilities.randomElement()
         let seconds = Double.random(in: 2...5)
-        waitTime(seconds){}
-        self.revealImage.isHidden = false
+        waitTime(seconds){
+            self.revealImage.isHidden = false
+        }
     }
     
     func reset()
