@@ -38,7 +38,7 @@ class gamesManager
 {
     static let shared = gamesManager()
     
-    private init() {}
+    private init(){}
     
     var xColor: UIColor = .red
 
@@ -54,4 +54,19 @@ class gamesManager
 extension NSNotification.Name
 {
     static let updatedGradient = NSNotification.Name("updatedGradient")
+}
+
+enum Player: String
+{
+    case x = "X"
+    case o = "O"
+    
+    var color: UIColor
+    {
+        switch(self)
+        {
+            case .x: return gamesManager.shared.xColor
+            case .o: return gamesManager.shared.oColor
+        }
+    }
 }

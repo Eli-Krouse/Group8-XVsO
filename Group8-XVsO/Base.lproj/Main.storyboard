@@ -220,7 +220,7 @@
         <!--Speed Test View Controller-->
         <scene sceneID="pfd-50-0ET">
             <objects>
-                <viewController storyboardIdentifier="Speed Test View Controller" id="JNZ-Wk-1u5" customClass="SpeedTestViewController" customModule="Group8_XVsO" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Speed Test" id="JNZ-Wk-1u5" customClass="SpeedTestViewController" customModule="Group8_XVsO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i1P-Q4-uRf" customClass="GradientView" customModule="Group8_XVsO" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -591,6 +591,12 @@
                         <outletCollection property="oMinigamePoints" destination="Gxd-ri-raa" collectionClass="NSMutableArray" id="l0a-I2-ST6"/>
                         <outletCollection property="oMinigamePoints" destination="9vn-d6-dfZ" collectionClass="NSMutableArray" id="fgk-KD-MOL"/>
                         <outletCollection property="oMinigamePoints" destination="2Do-KB-ZeW" collectionClass="NSMutableArray" id="Bi2-gU-tqt"/>
+                        <outletCollection property="oButtonCollection" destination="Ja4-83-upz" collectionClass="NSMutableArray" id="uLf-7h-Xc1"/>
+                        <outletCollection property="oButtonCollection" destination="VBh-NE-kZk" collectionClass="NSMutableArray" id="Klr-cR-8Ez"/>
+                        <outletCollection property="oButtonCollection" destination="RbM-Zv-Zt4" collectionClass="NSMutableArray" id="CMV-Nh-Ccb"/>
+                        <outletCollection property="xButtonCollection" destination="Suh-AV-s2O" collectionClass="NSMutableArray" id="H08-B2-fpL"/>
+                        <outletCollection property="xButtonCollection" destination="ADR-yq-M5B" collectionClass="NSMutableArray" id="MAr-KL-9yo"/>
+                        <outletCollection property="xButtonCollection" destination="gRA-Tk-ILB" collectionClass="NSMutableArray" id="Ly2-XH-iR4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yzy-bi-b7w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1989,10 +1995,10 @@
             </objects>
             <point key="canvasLocation" x="3456" y="1025"/>
         </scene>
-        <!--View Controller-->
+        <!--DotsN Boxes Settings View Controller-->
         <scene sceneID="Jm6-YW-LX1">
             <objects>
-                <viewController storyboardIdentifier="Dots-N-Boxes Settings" id="kZg-Yv-zJo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Dots-N-Boxes Settings" id="kZg-Yv-zJo" customClass="DotsNBoxesSettingsViewController" customModule="Group8_XVsO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tM9-z8-zAc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2004,6 +2010,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNZ-Sy-ui5">
+                                <rect key="frame" x="106" y="408" width="180" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="BETA: GO TO"/>
+                                <connections>
+                                    <action selector="goToDotsNBoxesTapped:" destination="kZg-Yv-zJo" eventType="touchUpInside" id="TXp-Jb-DdE"/>
+                                    <action selector="goToTicTacToeTapped:" destination="HNA-L9-3iH" eventType="touchUpInside" id="PVj-BO-vHF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Eox-fZ-WOU"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -2013,10 +2029,10 @@
             </objects>
             <point key="canvasLocation" x="3456" y="1819"/>
         </scene>
-        <!--View Controller-->
+        <!--Tic Tac Toe Settings View Controller-->
         <scene sceneID="6rn-N5-NO4">
             <objects>
-                <viewController storyboardIdentifier="Tic-Tac-Toe Settings" id="HNA-L9-3iH" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tic-Tac-Toe Settings" id="HNA-L9-3iH" customClass="TicTacToeSettingsViewController" customModule="Group8_XVsO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Ej-wt-E1L">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2028,6 +2044,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOZ-uL-RBb">
+                                <rect key="frame" x="106" y="373" width="180" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="BETA: GO TO"/>
+                                <connections>
+                                    <action selector="goToTicTacToeTapped:" destination="HNA-L9-3iH" eventType="touchUpInside" id="zmw-rn-TbS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="54E-CO-Ol0"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -2035,7 +2060,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6v-bF-y7i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4396" y="1025"/>
+            <point key="canvasLocation" x="4394.6564885496182" y="1024.6478873239437"/>
         </scene>
         <!--Color Scheme Settings View Controller-->
         <scene sceneID="OiC-FA-oyn">
@@ -2123,10 +2148,10 @@
             </objects>
             <point key="canvasLocation" x="4394.6564885496182" y="314.78873239436621"/>
         </scene>
-        <!--View Controller-->
+        <!--Speed Test Settings View Controller-->
         <scene sceneID="hoc-tF-ZSd">
             <objects>
-                <viewController storyboardIdentifier="Speed Test Settings" id="tZp-9V-iI1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Speed Test Settings" id="tZp-9V-iI1" customClass="SpeedTestSettingsViewController" customModule="Group8_XVsO" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EL5-f4-SSM">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2138,6 +2163,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieF-dD-IaE">
+                                <rect key="frame" x="106" y="428" width="180" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="BETA: GO TO"/>
+                                <connections>
+                                    <action selector="goToSpeedTestTapped:" destination="tZp-9V-iI1" eventType="touchUpInside" id="Sz2-XJ-JvQ"/>
+                                    <action selector="goToTicTacToeTapped:" destination="HNA-L9-3iH" eventType="touchUpInside" id="sFM-3P-AeN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mVJ-Ks-Wyk"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -2159,7 +2194,7 @@
         <image name="squareshape" catalog="system" width="128" height="114"/>
         <image name="triangle" catalog="system" width="128" height="109"/>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2168,19 +2203,19 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

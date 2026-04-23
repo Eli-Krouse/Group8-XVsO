@@ -160,9 +160,6 @@ class TicTacToeViewController: BaseViewController {
         }
     }
     
-    
-    
-    
     override func applyGradient() {
         BGGradientView.updateColors()
         playerXNameLabel.textColor = gamesManager.shared.xColor
@@ -186,17 +183,4 @@ class TicTacToeViewController: BaseViewController {
 
 }
 
-enum Player: String
-{
-    case x = "X"
-    case o = "O"
-    
-    var color: UIColor
-    {
-        switch(self)
-        {
-            case .x: return gamesManager.shared.xColor
-            case .o: return gamesManager.shared.oColor
-        }
-    }
-}
+

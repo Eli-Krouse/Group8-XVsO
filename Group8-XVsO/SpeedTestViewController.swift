@@ -28,6 +28,9 @@ class SpeedTestViewController: BaseViewController {
     
     @IBOutlet var oMinigamePoints: [UIImageView]!
     
+    var oMiniPts = 0
+    var xMiniPts = 0
+    
     @IBOutlet weak var o1: UIImageView!
     
     @IBOutlet weak var o2: UIImageView!
@@ -54,7 +57,9 @@ class SpeedTestViewController: BaseViewController {
     @IBOutlet weak var xSqrButton: UIButton!
     
     
-
+    @IBOutlet var oButtonCollection: [UIButton]!
+    
+    @IBOutlet var xButtonCollection: [UIButton]!
     
     
     @IBAction func oButtonTapped(_ sender: Any)
@@ -63,63 +68,134 @@ class SpeedTestViewController: BaseViewController {
         {
             return
         }
-        
-        var speedColor: UIColor?
-        
-        if(isCorrect(button))
-        {
-            speedColor = .green
-            oCircleButton.isUserInteractionEnabled = false
-            oTriButton.isUserInteractionEnabled = false
-            oSqrButton.isUserInteractionEnabled = false
-            xCircleButton.isUserInteractionEnabled = false
-            xTriButton.isUserInteractionEnabled = false
-            xSqrButton.isUserInteractionEnabled = false
-
-        }
-        else
-        {
-            speedColor = .red
-        }
-        
-        switch(button)
-        {
-            case oCircleButton:
-                o1.image = UIImage(systemName: "circle.fill")
-                o1.tintColor = speedColor
-            
-            case oTriButton:
-                o1.image = UIImage(systemName: "triangle.fill")
-                o1.tintColor = speedColor
-        
-            case oSqrButton:
-                o1.image = UIImage(systemName: "square.fill")
-                o1.tintColor = speedColor
-        
-        default:
-            return
-        }
-        
+        buttonHandler(button, for: .o)
     }
     
     @IBAction func xButtonTapped(_ sender: Any)
     {
+        guard let button = sender as? UIButton else
+        {
+            return
+        }
         
+        buttonHandler(button, for: .x)
     }
     
-    func isCorrect(_ button: UIButton) -> Bool
+    func buttonHandler(_ button: UIButton, for player: Player)
     {
+        let isCorrectGuess = isCorrect(button, for: player)
+
         
+        if(isCorrectGuess)
+        {
+            giveMiniPoint(to: player)
+            updateMinigamePointUI(for: player)
+            updateButtonUI(button, for: player, with: .green)
+            waitTime(2){}
+            reset()
+            
+            if(didWinMiniGame(for: player))
+            {
+                checkGameEnding()
+            }
+        }else
+        {
+            makeUninteractable(for: player)
+            updateButtonUI(button, for: player, with: .red)
+        }
+
+    }
+    func isCorrect(_ button: UIButton, for player: Player) -> Bool
+    {
+  
+        let correctGuessImage = revealImage.image
+        
+        switch(player)
+        {
+            case .x:
+                switch(button)
+                {
+                    case xCircleButton:
+                        return UIImage(systemName: "circle.fill") == correctGuessImage
+                    case xTriButton:
+                        return UIImage(systemName: "triangle.fill") == correctGuessImage
+                    case xSqrButton:
+                        return UIImage(systemName: "square.fill") == correctGuessImage
+                    default:
+                        break
+                }
+                
+            case .o:
+                switch(button)
+                {
+                    case oCircleButton:
+                        return UIImage(systemName: "circle.fill") == correctGuessImage
+                    case oTriButton:
+                        return UIImage(systemName: "triangle.fill") == correctGuessImage
+                    case oSqrButton:
+                        return UIImage(systemName: "square.fill") == correctGuessImage
+                    default:
+                        break
+                }
+        }
         
         return false
     }
     
-    func makeUninteractable(_ buttons: [UIButton])
+    func makeUninteractable(for player: Player)
     {
+        let buttons: [UIButton]
+        switch(player)
+        {
+        case .x:
+            buttons = xButtonCollection
+        case .o:
+            buttons = oButtonCollection
+        }
+        
         for button in buttons
         {
             button.isUserInteractionEnabled = false
         }
+    }
+    
+    func updateMinigamePointUI(for player: Player)
+    {
+        switch(player)
+        {
+        case .x:
+            xMinigamePoints[self.xMiniPts-1].image = UIImage(systemName: "circleBadge.fill")
+            xMinigamePoints[self.xMiniPts-1].tintColor = gamesManager.shared.xColor
+        
+        case .o:
+            oMinigamePoints[self.oMiniPts-1].image = UIImage(systemName: "circleBadge.fill")
+            oMinigamePoints[self.oMiniPts-1].tintColor = gamesManager.shared.oColor
+        }
+    }
+    
+    func updateButtonUI(_ button: UIButton, for player: Player, with color: UIColor)
+    {
+        let imageGuessed: [UIButton: UIImageView] = player == .x ? [xCircleButton: x1, xTriButton: x2, xSqrButton: x3] : [oCircleButton: o1, oTriButton: o2, oSqrButton: o3]
+        
+        guard let image = imageGuessed[button] else
+        {
+            return
+        }
+        
+        var systemImage: String
+        switch(button)
+        {
+            case xCircleButton, oCircleButton:
+                systemImage = "circle.fill"
+            case xTriButton, oTriButton:
+                systemImage = "triangle.fill"
+            case xSqrButton, oSqrButton:
+                systemImage = "square.fill"
+            default:
+                return
+        }
+        image.image = UIImage(systemName: systemImage)
+        image.tintColor = color
     }
     
     override func viewDidLoad() {
@@ -145,11 +221,49 @@ class SpeedTestViewController: BaseViewController {
     
     func showShape()
     {
-        let shapeRand = Int.random(in: 0...2)
-        revealImage.image = UIImage(systemName: "circle.fill")
-        let seconds = Double.random(in: 1...3)
+        revealImage.isHidden = true
+        let shapePossibilities = ["circle.fill", "triangle.fill", "square.fill"]
+        let revealImage = shapePossibilities.randomElement()
+        let seconds = Double.random(in: 2...5)
         waitTime(seconds){}
         self.revealImage.isHidden = false
     }
     
+    func reset()
+    {
+        for button in oButtonCollection + xButtonCollection
+        {
+            button.isUserInteractionEnabled = true
+        }
+        showShape()
+    }
+    
+    func giveMiniPoint(to player: Player)
+    {
+        switch player
+        {
+            case .x:
+                xMiniPts += 1
+            case .o:
+                oMiniPts += 1
+        }
+    }
+    
+    func didWinMiniGame(for player: Player) -> Bool
+    {
+        return (player == .x ? xMiniPts : oMiniPts) >= 8
+    }
+    
+    func checkGameEnding()
+    {
+        if(gamesManager.shared.currentRound>gamesManager.shared.maxRounds)
+        {
+            let vc = self.storyBoard.instantiateViewController(withIdentifier: "End Game") as! EndGameViewController
+            
+            self.navigationController?.setViewControllers([vc], animated: false)
+        }
+        let vc = self.storyBoard.instantiateViewController(withIdentifier: "Tic Tac Toe") as! TicTacToeViewController
+        
+        self.navigationController?.setViewControllers([vc], animated: false)
+    }
 }

@@ -7,23 +7,22 @@
 
 import UIKit
 
-class DotsNBoxesSettingsViewController: UIViewController {
+class DotsNBoxesSettingsViewController: BaseViewController {
 
+  
+    @IBAction func goToDotsNBoxesTapped(_ sender: Any)
+    {
+        let vc = self.storyBoard.instantiateViewController(withIdentifier: "Dots N Boxes") as! DotsNBoxesViewController
+        
+        self.navigationController?.setViewControllers([vc], animated: false)
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
