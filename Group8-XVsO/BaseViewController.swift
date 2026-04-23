@@ -23,9 +23,9 @@ class BaseViewController: UIViewController
     
     @objc func applyGradient(){}
     
-    func waitTime(_ seconds: Double)
+    func waitTime(_ seconds: Double, code: @escaping () -> Void)
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds){}
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds){code()}
     }
     
     deinit

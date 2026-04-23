@@ -360,7 +360,7 @@
                                     <segue destination="wsr-XO-yeJ" kind="show" id="47z-wh-HvM"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JUh-9j-a34">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JUh-9j-a34">
                                 <rect key="frame" x="146" y="375.66666666666652" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -481,6 +481,9 @@
                                         <real key="value" value="3.1419999999999999"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="oButtonTapped:" destination="JNZ-Wk-1u5" eventType="touchUpInside" id="IVY-kR-yTY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ja4-83-upz">
                                 <rect key="frame" x="241" y="170" width="75" height="75"/>
@@ -494,6 +497,9 @@
                                         <real key="value" value="3.1419999999999999"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="oButtonTapped:" destination="JNZ-Wk-1u5" eventType="touchUpInside" id="e5c-Xy-YPD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbM-Zv-Zt4">
                                 <rect key="frame" x="68" y="170" width="75" height="75"/>
@@ -507,6 +513,9 @@
                                         <real key="value" value="3.1419999999999999"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="oButtonTapped:" destination="JNZ-Wk-1u5" eventType="touchUpInside" id="f09-co-NJQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADR-yq-M5B">
                                 <rect key="frame" x="159" y="621" width="75" height="75"/>
@@ -515,6 +524,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="xButtonTapped:" destination="JNZ-Wk-1u5" eventType="touchUpInside" id="olA-OI-gFN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Suh-AV-s2O">
                                 <rect key="frame" x="68" y="621" width="75" height="75"/>
@@ -523,6 +535,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="xButtonTapped:" destination="JNZ-Wk-1u5" eventType="touchUpInside" id="yqF-jX-pSO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRA-Tk-ILB">
                                 <rect key="frame" x="249" y="621" width="75" height="75"/>
@@ -531,6 +546,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="xButtonTapped:" destination="JNZ-Wk-1u5" eventType="touchUpInside" id="fD9-X0-iPi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ei6-PV-ULm"/>
@@ -544,9 +562,9 @@
                         <outlet property="o1" destination="Lhn-2f-MiI" id="SkV-wn-jwI"/>
                         <outlet property="o2" destination="P7r-JS-fg2" id="Q42-Kd-Vf5"/>
                         <outlet property="o3" destination="VN7-2f-FrB" id="Is1-9r-lpG"/>
-                        <outlet property="oCircleButton" destination="Ja4-83-upz" id="krt-Ze-w8Y"/>
-                        <outlet property="oSquareButton" destination="RbM-Zv-Zt4" id="bLn-0O-nlY"/>
-                        <outlet property="oTriangleButton" destination="VBh-NE-kZk" id="mcW-lJ-Uft"/>
+                        <outlet property="oCircleButton" destination="Ja4-83-upz" id="K3x-9y-iCr"/>
+                        <outlet property="oSqrButton" destination="RbM-Zv-Zt4" id="Tim-D8-lHi"/>
+                        <outlet property="oTriButton" destination="VBh-NE-kZk" id="Sy0-ob-eEA"/>
                         <outlet property="playerONameLabel" destination="b4f-YP-hYH" id="y73-KL-bwU"/>
                         <outlet property="playerXNameLabel" destination="GEK-cj-Xlx" id="aQw-Au-bXh"/>
                         <outlet property="revealImage" destination="JUh-9j-a34" id="Gra-Hn-zT4"/>
@@ -554,9 +572,9 @@
                         <outlet property="x1" destination="orf-gi-5N1" id="BpN-gl-NBS"/>
                         <outlet property="x2" destination="mb9-Uz-kEQ" id="exb-mk-Yrz"/>
                         <outlet property="x3" destination="jbA-bb-fFp" id="XdK-Zs-2iG"/>
-                        <outlet property="xCircleButton" destination="Suh-AV-s2O" id="oNf-eT-b9I"/>
-                        <outlet property="xSquareButton" destination="gRA-Tk-ILB" id="qZs-6f-avD"/>
-                        <outlet property="xTriangleButton" destination="ADR-yq-M5B" id="aqn-TX-sQS"/>
+                        <outlet property="xCircleButton" destination="Suh-AV-s2O" id="f8O-9r-twD"/>
+                        <outlet property="xSqrButton" destination="gRA-Tk-ILB" id="VSI-y1-dQC"/>
+                        <outlet property="xTriButton" destination="ADR-yq-M5B" id="iFg-hJ-R1h"/>
                         <outletCollection property="xMinigamePoints" destination="3Ha-i7-JFC" collectionClass="NSMutableArray" id="6NV-s6-VK2"/>
                         <outletCollection property="xMinigamePoints" destination="B1m-tg-DbY" collectionClass="NSMutableArray" id="dI3-BA-jPk"/>
                         <outletCollection property="xMinigamePoints" destination="ktX-Wa-kqW" collectionClass="NSMutableArray" id="6Xb-Qy-t5t"/>
@@ -2141,7 +2159,7 @@
         <image name="squareshape" catalog="system" width="128" height="114"/>
         <image name="triangle" catalog="system" width="128" height="109"/>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2150,19 +2168,19 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
