@@ -7,9 +7,16 @@
 
 import UIKit
 
-class SpeedTestViewController: UIViewController {
+class SpeedTestViewController: BaseViewController {
 
     @IBOutlet weak var settingsButton: UIButton!
+    
+    @IBOutlet var BGGradientView: GradientView!
+    
+    @IBOutlet weak var playerONameLabel: UILabel!
+    
+    @IBOutlet weak var playerXNameLabel: UILabel!
+    
     
     
     override func viewDidLoad() {
@@ -21,14 +28,10 @@ class SpeedTestViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func applyGradient() {
+        BGGradientView.updateColors()
+        playerXNameLabel.textColor = gamesManager.shared.xColor
+        playerONameLabel.textColor = gamesManager.shared.oColor
     }
-    */
 
 }

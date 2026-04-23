@@ -38,7 +38,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40u-BO-FHP">
                                 <rect key="frame" x="109" y="397" width="175" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <color key="tintColor" systemColor="secondarySystemBackgroundColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Play!">
                                     <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="25"/>
@@ -62,6 +62,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="8sh-6r-cYw"/>
                     <connections>
+                        <outlet property="BGGradientView" destination="8bC-Xf-vdC" id="hS0-57-8nn"/>
                         <outlet property="oTitleLabel" destination="81n-VV-dhj" id="CiE-Iy-l3s"/>
                         <outlet property="playButton" destination="40u-BO-FHP" id="0c0-Lq-vPi"/>
                         <outlet property="settingsButton" destination="63v-TB-KPx" id="Ssc-k3-9mb"/>
@@ -143,17 +144,27 @@
                                     <action selector="roundStepper:" destination="pp0-IH-0Nq" eventType="valueChanged" id="Ymg-Qm-dbt"/>
                                 </connections>
                             </stepper>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xfq-Fg-Vi0">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xfq-Fg-Vi0">
                                 <rect key="frame" x="279" y="346" width="45" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUt-vM-E29">
+                                <rect key="frame" x="124" y="615" width="145" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="End Game"/>
+                                <connections>
+                                    <action selector="endGameTapped:" destination="pp0-IH-0Nq" eventType="touchUpInside" id="ahU-r1-kWU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="N7n-We-vRF"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                     </view>
                     <connections>
+                        <outlet property="endGameButton" destination="RUt-vM-E29" id="tSP-Ej-Sh6"/>
                         <outlet property="roundTextField" destination="xfq-Fg-Vi0" id="xS3-aP-TDB"/>
                     </connections>
                 </viewController>
@@ -288,6 +299,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="JDo-dO-msp"/>
                     <connections>
+                        <outlet property="BGGradientView" destination="i1P-Q4-uRf" id="fzZ-ZT-rbt"/>
+                        <outlet property="playerONameLabel" destination="b4f-YP-hYH" id="y73-KL-bwU"/>
+                        <outlet property="playerXNameLabel" destination="GEK-cj-Xlx" id="aQw-Au-bXh"/>
                         <outlet property="settingsButton" destination="dpU-iZ-dlD" id="PVw-bJ-5gs"/>
                     </connections>
                 </viewController>
@@ -1186,6 +1200,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="mRj-Mq-oLt"/>
                     <connections>
+                        <outlet property="BGGradientView" destination="pbI-yc-WOe" id="yiP-z0-EZd"/>
+                        <outlet property="playerONameLabel" destination="bJP-CJ-FDa" id="FQM-af-92o"/>
+                        <outlet property="playerXNameLabel" destination="ITf-mF-d9v" id="fDh-lK-Z63"/>
                         <outlet property="settingsButton" destination="3fT-yY-LLE" id="lvx-ES-eDM"/>
                     </connections>
                 </viewController>
@@ -1206,7 +1223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ra5-Tr-dwj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2529" y="1858"/>
+            <point key="canvasLocation" x="2531" y="1818"/>
         </scene>
         <!--Tic Tac Toe View Controller-->
         <scene sceneID="N25-WF-cEN">
@@ -1533,6 +1550,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="TfG-l1-9YI"/>
                     <connections>
+                        <outlet property="BGGradientView" destination="Ap0-fL-eme" id="GOs-OV-ow1"/>
                         <outlet property="gamePointOLabel" destination="Biy-va-JMR" id="qDb-8K-cSX"/>
                         <outlet property="gamePointXLabel" destination="758-OV-gXt" id="gxp-bD-Vt2"/>
                         <outlet property="playerONameLabel" destination="rsx-S3-iAh" id="cJj-yG-Q3x"/>
@@ -1654,6 +1672,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFd-6k-fMf">
@@ -1764,9 +1783,6 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

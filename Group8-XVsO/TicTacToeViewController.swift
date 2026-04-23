@@ -7,11 +7,14 @@
 
 import UIKit
 
-class TicTacToeViewController: UIViewController {
+class TicTacToeViewController: BaseViewController {
     
     @IBOutlet weak var playerONameLabel: UILabel!
     
     @IBOutlet weak var playerXNameLabel: UILabel!
+    
+    @IBOutlet var BGGradientView: GradientView!
+    
     
     @IBOutlet var xPts: [UIImageView]!
     
@@ -160,15 +163,11 @@ class TicTacToeViewController: UIViewController {
     
     
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func applyGradient() {
+        BGGradientView.updateColors()
+        playerXNameLabel.textColor = gamesManager.shared.xColor
+        playerONameLabel.textColor = gamesManager.shared.oColor
     }
-    */
 
 }
 

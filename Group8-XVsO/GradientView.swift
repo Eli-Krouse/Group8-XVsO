@@ -42,8 +42,8 @@ class GradientView: UIView
     
     func updateColors()
     {
-        //gradientLayer.colors = colors.map { $0.cgColor }
-        colors = [gamesManager.shared.oColor, gamesManager.shared.xColor]
+        let newColors = [gamesManager.shared.oColor, gamesManager.shared.xColor]
+        gradientLayer.colors = newColors.map { $0.cgColor }
     }
 
     override func layoutSubviews() {

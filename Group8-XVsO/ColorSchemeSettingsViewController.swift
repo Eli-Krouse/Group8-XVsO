@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ColorSchemeSettingsViewController: UIViewController
+class ColorSchemeSettingsViewController: BaseViewController
 {
     
     @IBOutlet weak var exampleView: GradientView!
@@ -16,33 +16,33 @@ class ColorSchemeSettingsViewController: UIViewController
     {
         gamesManager.shared.oColor = .red
         gamesManager.shared.xColor = .blue
+        center.post(name: .updatedGradient, object: nil)
     }
     
     @IBAction func opt2Button(_ sender: Any)
     {
         gamesManager.shared.oColor = .yellow
         gamesManager.shared.xColor = .green
+        center.post(name: .updatedGradient, object: nil)
     }
     
     @IBAction func opt3Button(_ sender: Any)
     {
         gamesManager.shared.oColor = .systemPink
         gamesManager.shared.xColor = .purple
+        center.post(name: .updatedGradient, object: nil)
     }
     
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        let center = NotificationCenter.default
-        center.addObserver(self, selector: #selector(applyGradient), name: .updatedGradient, object: nil)
-        applyGradient()
+
     }
-    
-    @objc func applyGradient()
+
+    override func applyGradient()
     {
         exampleView.updateColors()
     }
-
 }
 
 

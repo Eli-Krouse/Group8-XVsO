@@ -7,8 +7,9 @@
 
 import UIKit
 
-class HomeViewController: UIViewController
+class HomeViewController: BaseViewController
 {
+    @IBOutlet var BGGradientView: GradientView!
     
     @IBOutlet weak var playButton: UIButton!
     
@@ -21,7 +22,6 @@ class HomeViewController: UIViewController
     
     @IBAction func playButtonTapped(_ sender: Any)
     {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "Tic Tac Toe") as! TicTacToeViewController
         
         navigationController?.setViewControllers([vc], animated: false)
@@ -35,29 +35,15 @@ class HomeViewController: UIViewController
         settingsButton.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
         settingsButton.tintColor = .gray
         
+        playButton.titleLabel?.textColor = .black
+        playButton.tintColor = .white
+    }
+    
+    override func applyGradient() {
+        BGGradientView.updateColors()
         xTitleLabel.textColor = gamesManager.shared.xColor
         oTitleLabel.textColor = gamesManager.shared.oColor
     }
 }
 
-class gamesManager
-{
-    static let shared = gamesManager()
-    
-    private init() {}
-    
-    var xColor: UIColor = .red
 
-    var oColor: UIColor = .blue
-    
-    var xGamePts = 0
-    var oGamePts = 0
-    
-    var maxRounds = 1
-    var currentRound = 1
-}
-
-extension NSNotification.Name
-{
-    static let updatedGradient = NSNotification.Name("updatedGradient")
-}

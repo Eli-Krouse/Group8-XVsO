@@ -7,23 +7,47 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController
+{
 
-    override func viewDidLoad() {
+    let center = NotificationCenter.default
+    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+    
+    
+    override func viewDidLoad(){
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        center.addObserver(self, selector: #selector(applyGradient), name: .updatedGradient, object: nil)
+        
+        applyGradient()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func applyGradient(){}
+    
+    deinit
+    {
+        center.removeObserver(self)
     }
-    */
 
+}
+
+class gamesManager
+{
+    static let shared = gamesManager()
+    
+    private init() {}
+    
+    var xColor: UIColor = .red
+
+    var oColor: UIColor = .blue
+    
+    var xGamePts = 0
+    var oGamePts = 0
+    
+    var maxRounds = 1
+    var currentRound = 1
+}
+
+extension NSNotification.Name
+{
+    static let updatedGradient = NSNotification.Name("updatedGradient")
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EndGameViewController: UIViewController
+class EndGameViewController: BaseViewController
 {
     
     
