@@ -21,6 +21,10 @@ class SpeedTestViewController: BaseViewController {
     
     @IBOutlet weak var gamePointXLabel: UILabel!
     
+    @IBOutlet weak var revealImage: UIImageView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
