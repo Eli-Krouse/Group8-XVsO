@@ -64,7 +64,7 @@ class SpeedTestViewController: BaseViewController {
     
     lazy var xDict: [UIButton: UIImageView] = [xCircleButton: x1, xTriButton: x2, xSqrButton: x3]
     lazy var oDict: [UIButton: UIImageView] = [oCircleButton: o1, oTriButton: o2, oSqrButton: o3]
-    
+    lazy var defaultButtonImages: [UIImageView: UIImage] = [x1: UIImage(systemName: "circlebadge")!, x2: UIImage(systemName: "triangle")!, x3: UIImage(systemName: "square")!, o1: UIImage(systemName: "circlebadge")!, o2: UIImage(systemName: "triangle")!, o3: UIImage(systemName: "square")!]
     
     
     @IBAction func oButtonTapped(_ sender: Any)
@@ -99,7 +99,7 @@ class SpeedTestViewController: BaseViewController {
             giveMiniPoint(to: player)
             updateMinigamePointUI(for: player)
             updateButtonUI(button, for: player, with: .green)
-            waitTime(2){
+            waitTime(0.5){
                 self.reset()
             }
             
@@ -113,7 +113,22 @@ class SpeedTestViewController: BaseViewController {
             makeUninteractable(for: player)
             updateButtonUI(button, for: player, with: .red)
         }
-
+        
+        var bothFailed = true
+        for button in oButtonCollection + xButtonCollection
+        {
+            if(button.isUserInteractionEnabled == true)
+            {
+                bothFailed = false
+                break;
+            }
+        }
+        if(bothFailed)
+        {
+            waitTime(0.5) {
+                self.reset()
+            }
+        }
     }
     func isCorrect(_ button: UIButton, for player: Player) -> Bool
     {
@@ -174,11 +189,11 @@ class SpeedTestViewController: BaseViewController {
         switch(player)
         {
         case .x:
-            xMinigamePoints[self.xMiniPts-1].image = UIImage(systemName: "circleBadge.fill")
+            xMinigamePoints[self.xMiniPts-1].image = UIImage(systemName: "circlebadge.fill")
             xMinigamePoints[self.xMiniPts-1].tintColor = gamesManager.shared.xColor
         
         case .o:
-            oMinigamePoints[self.oMiniPts-1].image = UIImage(systemName: "circleBadge.fill")
+            oMinigamePoints[self.oMiniPts-1].image = UIImage(systemName: "circlebadge.fill")
             oMinigamePoints[self.oMiniPts-1].tintColor = gamesManager.shared.oColor
         }
     }
@@ -231,8 +246,8 @@ class SpeedTestViewController: BaseViewController {
     {
         revealImage.isHidden = true
         let shapePossibilities = ["circle.fill", "triangle.fill", "square.fill"]
-        let revealImage = shapePossibilities.randomElement()
-        let seconds = Double.random(in: 2...5)
+        revealImage.image = UIImage(systemName: shapePossibilities.randomElement()!)
+        let seconds = Double.random(in: 1.5...4)
         waitTime(seconds){
             self.revealImage.isHidden = false
         }
@@ -243,6 +258,11 @@ class SpeedTestViewController: BaseViewController {
         for button in oButtonCollection + xButtonCollection
         {
             button.isUserInteractionEnabled = true
+        }
+        for(imageView, image) in defaultButtonImages
+        {
+            imageView.image = image
+            imageView.tintColor = .black
         }
         showShape()
     }

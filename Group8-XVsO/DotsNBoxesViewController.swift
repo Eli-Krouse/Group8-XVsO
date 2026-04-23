@@ -22,6 +22,9 @@ class DotsNBoxesViewController: BaseViewController {
     
     @IBOutlet weak var gamePointXLabel: UILabel!
     
+    @IBOutlet weak var oMinigamePtsLabel: UILabel!
+    
+    @IBOutlet weak var xMinigamePtsLabel: UILabel!
     
     
     override func viewDidLoad() {

@@ -67,8 +67,11 @@ class TicTacToeViewController: BaseViewController {
                     return
             }
             updateGameVisualization(for: currentPlayer.rawValue)
-            reset()
-            didWinGame()
+            waitTime(0.5)
+            {
+                self.reset()
+                self.didWinGame()
+            }
             return
         }
         

@@ -1488,6 +1488,49 @@
                                     <segue destination="wsr-XO-yeJ" kind="show" id="xeT-bE-1Bu"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gsx-rt-ur2">
+                                <rect key="frame" x="146" y="160" width="100" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vy-ek-gsg">
+                                        <rect key="frame" x="14" y="11" width="73" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
+                                                <real key="value" value="3.1419999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9K6-WS-vJu">
+                                <rect key="frame" x="146" y="635" width="100" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsw-vg-tNL">
+                                        <rect key="frame" x="14" y="11" width="73" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="31L-2u-Ph1"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -1497,14 +1540,16 @@
                         <outlet property="BGGradientView" destination="pbI-yc-WOe" id="yiP-z0-EZd"/>
                         <outlet property="gamePointOLabel" destination="29q-fc-asU" id="KP4-Uy-Obb"/>
                         <outlet property="gamePointXLabel" destination="iZ5-P9-UG8" id="FYU-WD-Ck6"/>
+                        <outlet property="oMinigamePtsLabel" destination="2Vy-ek-gsg" id="vae-IM-9oB"/>
                         <outlet property="playerONameLabel" destination="bJP-CJ-FDa" id="FQM-af-92o"/>
                         <outlet property="playerXNameLabel" destination="ITf-mF-d9v" id="fDh-lK-Z63"/>
                         <outlet property="settingsButton" destination="3fT-yY-LLE" id="lvx-ES-eDM"/>
+                        <outlet property="xMinigamePtsLabel" destination="tsw-vg-tNL" id="ftH-3Z-gWQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="51s-8B-fh8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1053" y="1615"/>
+            <point key="canvasLocation" x="1052.6717557251909" y="1614.7887323943662"/>
         </scene>
         <!--End Game View Controller-->
         <scene sceneID="v37-wP-u9b">
@@ -2184,7 +2229,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="47z-wh-HvM"/>
+        <segue reference="xeT-bE-1Bu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
