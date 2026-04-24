@@ -62,12 +62,9 @@
                                 <rect key="frame" x="76.666666666666686" y="616" width="240" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="X Versus O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81n-VV-dhj">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X Versus O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81n-VV-dhj">
                                         <rect key="frame" x="30.333333333333329" y="22" width="179" height="39"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="39" id="Oxs-Hd-vbV"/>
-                                            <constraint firstAttribute="width" constant="179" id="jcb-cM-vJg"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <color key="highlightedColor" systemColor="secondarySystemBackgroundColor"/>
