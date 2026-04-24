@@ -61,12 +61,13 @@ class SpeedTestViewController: BaseViewController {
     
     @IBOutlet var xButtonCollection: [UIButton]!
     
-    
+    //set up Lazy variable Dictionaries for UI handling
     lazy var xDict: [UIButton: UIImageView] = [xCircleButton: x1, xTriButton: x2, xSqrButton: x3]
     lazy var oDict: [UIButton: UIImageView] = [oCircleButton: o1, oTriButton: o2, oSqrButton: o3]
+    //lazy var dict for better looking code when resetting guessed picture buttons
     lazy var defaultButtonImages: [UIImageView: UIImage] = [x1: UIImage(systemName: "circlebadge")!, x2: UIImage(systemName: "triangle")!, x3: UIImage(systemName: "square")!, o1: UIImage(systemName: "circlebadge")!, o2: UIImage(systemName: "triangle")!, o3: UIImage(systemName: "square")!]
     
-    
+    //oButton tappped function. seperated to identify x or o easier
     @IBAction func oButtonTapped(_ sender: Any)
     {
         guard let button = sender as? UIButton else
@@ -76,6 +77,7 @@ class SpeedTestViewController: BaseViewController {
         buttonHandler(button, for: .o)
     }
     
+    //xButton function
     @IBAction func xButtonTapped(_ sender: Any)
     {
         guard let button = sender as? UIButton else
@@ -86,11 +88,13 @@ class SpeedTestViewController: BaseViewController {
         buttonHandler(button, for: .x)
     }
     
+    //button handler. checks if your guess was correct, then awards points or just updates UI and lets the other player get a chance by deactivating just your buttons
     func buttonHandler(_ button: UIButton, for player: Player)
     {
+        // checks your guess
         let isCorrectGuess = isCorrect(button, for: player)
         
-        
+        //if it is correct, all buttons deactivated and UI with .green etc
         if(isCorrectGuess)
         {
             makeUninteractable(for: .x)
@@ -102,7 +106,7 @@ class SpeedTestViewController: BaseViewController {
             waitTime(0.5){
                 self.reset()
             }
-            
+            //if they guessed correct, we also check if the game ended
             if(didWinMiniGame(for: player))
             {
                 switch(player)
@@ -113,15 +117,18 @@ class SpeedTestViewController: BaseViewController {
                         GamesManager.shared.oGamePts += 1
                 }
                 GamesManager.shared.currentRound += 1
+                //checks if the round ended
                 checkRoundEnding()
             }
             
         }else
         {
+            //if their guess was wrong, updae their UI and deactivate their buttons
             makeUninteractable(for: player)
             updateButtonUI(button, for: player, with: .red)
         }
         
+        //if both failed, reset and award no points
         var bothFailed = true
         for button in oButtonCollection + xButtonCollection
         {
@@ -138,6 +145,8 @@ class SpeedTestViewController: BaseViewController {
             }
         }
     }
+    
+    //checks if a player made the corredt choice using dicts
     func isCorrect(_ button: UIButton, for player: Player) -> Bool
     {
   
@@ -175,6 +184,7 @@ class SpeedTestViewController: BaseViewController {
         return false
     }
     
+    //makes the buttons uninteractable
     func makeUninteractable(for player: Player)
     {
         let buttons: [UIButton]
@@ -192,6 +202,7 @@ class SpeedTestViewController: BaseViewController {
         }
     }
     
+    //UIupdater for mingame point visualizer
     func updateMinigamePointUI(for player: Player)
     {
         switch(player)
@@ -206,6 +217,7 @@ class SpeedTestViewController: BaseViewController {
         }
     }
     
+    //updates guess button UI using dicts
     func updateButtonUI(_ button: UIButton, for player: Player, with color: UIColor)
     {
         guard let image = (player == .x ? xDict : oDict)[button] else
@@ -249,7 +261,7 @@ class SpeedTestViewController: BaseViewController {
         playerONameLabel.textColor = GamesManager.shared.oColor
     }
 
-    
+    //repeated function that gets a random picture and shows it at a random time between 1.5 and 4 secods to simulate a "reaction time guessing game"
     func showShape()
     {
         revealImage.isHidden = true
@@ -261,6 +273,7 @@ class SpeedTestViewController: BaseViewController {
         }
     }
     
+    //makes all buttons interactable again and set's the guess button images back to their defaullt state
     func reset()
     {
         for button in oButtonCollection + xButtonCollection
@@ -275,6 +288,7 @@ class SpeedTestViewController: BaseViewController {
         showShape()
     }
     
+    //awards minipoints
     func giveMiniPoint(to player: Player)
     {
         switch player
@@ -286,11 +300,13 @@ class SpeedTestViewController: BaseViewController {
         }
     }
     
+    //returns a boolean based on if they won the game
     func didWinMiniGame(for player: Player) -> Bool
     {
         return (player == .x ? xMiniPts : oMiniPts) >= 8
     }
     
+    //if the round ends, send you to EndGameViewController, else, go back to TicTacToe
     func checkRoundEnding()
     {
         var vc: UIViewController

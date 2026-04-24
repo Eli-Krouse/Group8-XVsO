@@ -21,9 +21,7 @@ class EndGameViewController: BaseViewController
     //resets current round and sends you to TicTacToe to replay
     @IBAction func replayButtonTapped(_ sender: Any)
     {
-        GamesManager.shared.currentRound = 1
-        GamesManager.shared.xGamePts = 0
-        GamesManager.shared.oGamePts = 0
+        gameMangReset()
         let vc = storyBoard.instantiateViewController(withIdentifier: "Tic Tac Toe") as! TicTacToeViewController
         
         navigationController?.setViewControllers([vc], animated: true)
@@ -31,16 +29,22 @@ class EndGameViewController: BaseViewController
         
     }
     
+    //sends you to home screen, but still resets in case you play again
     @IBAction func stopButtonTapped(_ sender: Any)
     {
-        GamesManager.shared.currentRound = 1
-        GamesManager.shared.xGamePts = 0
-        GamesManager.shared.oGamePts = 0
+        gameMangReset()
         let vc = storyBoard.instantiateViewController(withIdentifier: "Home") as! HomeViewController
         
         navigationController?.setViewControllers([vc], animated: true)
     }
     
+    //resets game points and current round
+    func gameMangReset()
+    {
+        GamesManager.shared.currentRound = 1
+        GamesManager.shared.xGamePts = 0
+        GamesManager.shared.oGamePts = 0
+    }
     
     override func viewDidLoad()
     {
