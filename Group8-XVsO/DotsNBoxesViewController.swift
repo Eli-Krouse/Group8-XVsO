@@ -150,9 +150,11 @@ class DotsNBoxesViewController: BaseViewController {
             }
         }
         
-        let vc = storyBoard.instantiateViewController(withIdentifier: "Speed Test") as! SpeedTestViewController
-        
-        navigationController?.setViewControllers([vc], animated: true)
+        waitTime(0.5) {
+            let vc = self.storyBoard.instantiateViewController(withIdentifier: "Speed Test") as! SpeedTestViewController
+            
+            self.navigationController?.setViewControllers([vc], animated: true)
+        }
     }
     
     override func viewDidLoad() {

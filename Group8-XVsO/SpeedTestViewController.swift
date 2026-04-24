@@ -89,7 +89,7 @@ class SpeedTestViewController: BaseViewController {
     func buttonHandler(_ button: UIButton, for player: Player)
     {
         let isCorrectGuess = isCorrect(button, for: player)
-
+        
         
         if(isCorrectGuess)
         {
@@ -105,7 +105,15 @@ class SpeedTestViewController: BaseViewController {
             
             if(didWinMiniGame(for: player))
             {
-                checkGameEnding()
+                switch(player)
+                {
+                    case .x:
+                        GamesManager.shared.xGamePts += 1
+                    case .o:
+                        GamesManager.shared.oGamePts += 1
+                }
+                GamesManager.shared.currentRound += 1
+                checkRoundEnding()
             }
             
         }else
@@ -283,16 +291,17 @@ class SpeedTestViewController: BaseViewController {
         return (player == .x ? xMiniPts : oMiniPts) >= 8
     }
     
-    func checkGameEnding()
+    func checkRoundEnding()
     {
+        var vc: UIViewController
         if(GamesManager.shared.currentRound>GamesManager.shared.maxRounds)
         {
-            let vc = self.storyBoard.instantiateViewController(withIdentifier: "End Game") as! EndGameViewController
-            
-            self.navigationController?.setViewControllers([vc], animated: true)
+             vc = self.storyBoard.instantiateViewController(withIdentifier: "End Game") as! EndGameViewController
+        } else
+        {
+            vc = self.storyBoard.instantiateViewController(withIdentifier: "Tic Tac Toe") as! TicTacToeViewController
         }
-        let vc = self.storyBoard.instantiateViewController(withIdentifier: "Tic Tac Toe") as! TicTacToeViewController
         
-        self.navigationController?.setViewControllers([vc], animated: true)
+        navigationController?.setViewControllers([vc], animated: true)
     }
 }

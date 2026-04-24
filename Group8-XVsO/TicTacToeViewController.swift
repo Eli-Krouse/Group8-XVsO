@@ -171,20 +171,8 @@ class TicTacToeViewController: BaseViewController {
         playerXNameLabel.textColor = GamesManager.shared.xColor
         playerONameLabel.textColor = GamesManager.shared.oColor
         
-
-        for (index, button) in board.enumerated()
-        {
-           switch(titleBoard[index])
-            {
-           case "X":
-               button.backgroundColor = GamesManager.shared.xColor
-           case "O":
-               button.backgroundColor = GamesManager.shared.oColor
-           default:
-               button.backgroundColor = .gray
-           }
-
-        }
+        gamePointOLabel.text = "\(GamesManager.shared.oGamePts)"
+        gamePointXLabel.text = "\(GamesManager.shared.xGamePts)"
     }
 }
 
