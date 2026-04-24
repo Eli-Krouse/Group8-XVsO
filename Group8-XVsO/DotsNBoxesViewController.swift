@@ -62,6 +62,7 @@ class DotsNBoxesViewController: BaseViewController {
         {
             currentPlayer = (currentPlayer == .x ? .x : .o)
         }
+        updateMinigamePoints(boxesCreated)
     }
     
     func didBoxComplete(row: Int, col: Int, _ isHorizontal: Bool) -> Int
@@ -81,7 +82,7 @@ class DotsNBoxesViewController: BaseViewController {
     
     func checkBox(top: Int, left: Int) -> Int
     {
-        guard top >= 0, top < 5, left >= 0, left < 5, boxes[top][left] != nil else
+        guard top >= 0, top < 5, left >= 0, left < 5, boxes[top][left] == nil, top+1 < vLines.count, left+1 < vLines[0].count else
         {
             return 0
         }
@@ -97,16 +98,39 @@ class DotsNBoxesViewController: BaseViewController {
     }
     
     
+    func updateMinigamePoints(_ total: Int)
+    {
+        guard let xPoints = Int(xMinigamePtsLabel.text!), let oPoints = Int(oMinigamePtsLabel.text!) else
+        {
+            return
+        }
+        switch(currentPlayer)
+        {
+            case .x:
+                xMinigamePtsLabel.text = "\(xPoints)"
+            case .o:
+                oMinigamePtsLabel.text = "\(oPoints)"
+        }
+    }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
+    func didGameEnd()
+    {
+        for row in boxes
+        {
+            for box in row
+            {
+                if(box == nil)
+                {
+                    return
+                }
+            }
+        }
+        
+        let vc = storyBoard.instantiateViewController(withIdentifier: "Speed Test") as! SpeedTestViewController
+        
+        navigationController?.setViewControllers([vc], animated: true)
+    }
     
     
     override func viewDidLoad() {

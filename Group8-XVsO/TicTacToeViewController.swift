@@ -124,11 +124,9 @@ class TicTacToeViewController: BaseViewController {
         {
             return
         }
-        
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "Dots N Boxes") as! DotsNBoxesViewController
         
-        navigationController?.setViewControllers([vc], animated: false)
+        navigationController?.setViewControllers([vc], animated: true)
         
     }
     

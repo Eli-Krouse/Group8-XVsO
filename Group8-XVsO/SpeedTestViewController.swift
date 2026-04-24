@@ -289,10 +289,10 @@ class SpeedTestViewController: BaseViewController {
         {
             let vc = self.storyBoard.instantiateViewController(withIdentifier: "End Game") as! EndGameViewController
             
-            self.navigationController?.setViewControllers([vc], animated: false)
+            self.navigationController?.setViewControllers([vc], animated: true)
         }
         let vc = self.storyBoard.instantiateViewController(withIdentifier: "Tic Tac Toe") as! TicTacToeViewController
         
-        self.navigationController?.setViewControllers([vc], animated: false)
+        self.navigationController?.setViewControllers([vc], animated: true)
     }
 }

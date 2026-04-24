@@ -26,7 +26,7 @@ class EndGameViewController: BaseViewController
         GamesManager.shared.oGamePts = 0
         let vc = storyBoard.instantiateViewController(withIdentifier: "Tic Tac Toe") as! TicTacToeViewController
         
-        navigationController?.setViewControllers([vc], animated: false)
+        navigationController?.setViewControllers([vc], animated: true)
         
         
     }
@@ -38,7 +38,7 @@ class EndGameViewController: BaseViewController
         GamesManager.shared.oGamePts = 0
         let vc = storyBoard.instantiateViewController(withIdentifier: "Home") as! HomeViewController
         
-        navigationController?.setViewControllers([vc], animated: false)
+        navigationController?.setViewControllers([vc], animated: true)
     }
     
     
