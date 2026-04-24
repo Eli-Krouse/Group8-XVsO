@@ -31,9 +31,10 @@ class DotsNBoxesViewController: BaseViewController {
     var hLines: [[LineState]] = Array(repeating: Array(repeating: .empty, count: 6), count: 5)
     var vLines: [[LineState]] = Array(repeating: Array(repeating: .empty, count: 5), count: 6)
     var boxes: [[Player?]] = Array(repeating: Array(repeating: nil, count: 5), count: 5)
+    var buttontoLineDict: [UIButton: LinePosition] = [:]
     
     var currentPlayer: Player = .x
-    
+
   
     @IBAction func lineTapped(_ sender: Any)
     {
@@ -41,9 +42,9 @@ class DotsNBoxesViewController: BaseViewController {
         {
             return
         }
-        
-        
-        
+        drawLine(row: <#T##Int#>, col: <#T##Int#>, <#T##isHorizontal: Bool##Bool#>)
+        button.backgroundColor = currentPlayer.color
+        button.isUserInteractionEnabled = false
     }
     
     func drawLine(row: Int, col: Int, _ isHorizontal: Bool)
@@ -97,6 +98,18 @@ class DotsNBoxesViewController: BaseViewController {
         return 0
     }
     
+    func linePosition(of button: UIButton) -> LinePosition
+    {
+        var tag = button.tag
+        if tag >= 100
+        {
+            tag = tag - 100
+            return LinePosition(row: tag/10, col: tag%10, isHorizontal: false)
+        } else
+        {
+            return LinePosition(row: tag/10, col: tag%10, isHorizontal: true)
+        }
+    }
     
     func updateMinigamePoints(_ total: Int)
     {
@@ -132,6 +145,10 @@ class DotsNBoxesViewController: BaseViewController {
         navigationController?.setViewControllers([vc], animated: true)
     }
     
+    func visualSetup()
+    {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,4 +177,11 @@ class DotsNBoxesViewController: BaseViewController {
 enum LineState
 {
     case empty, x, o
+}
+
+struct LinePosition
+{
+    let row: Int
+    let col: Int
+    let isHorizontal: Bool
 }
