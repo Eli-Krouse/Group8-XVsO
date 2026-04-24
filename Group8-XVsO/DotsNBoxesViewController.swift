@@ -27,6 +27,8 @@ class DotsNBoxesViewController: BaseViewController {
     @IBOutlet weak var xMinigamePtsLabel: UILabel!
     
     
+    @IBOutlet var boxLabels: [UILabel]!
+    
     
     var hLines: [[LineState]] = Array(repeating: Array(repeating: .empty, count: 6), count: 5)
     var vLines: [[LineState]] = Array(repeating: Array(repeating: .empty, count: 5), count: 6)
@@ -42,7 +44,8 @@ class DotsNBoxesViewController: BaseViewController {
         {
             return
         }
-        drawLine(row: <#T##Int#>, col: <#T##Int#>, <#T##isHorizontal: Bool##Bool#>)
+        let position = linePosition(of: button)
+        drawLine(row: position.row, col: position.col, position.isHorizontal)
         button.backgroundColor = currentPlayer.color
         button.isUserInteractionEnabled = false
     }
@@ -51,19 +54,20 @@ class DotsNBoxesViewController: BaseViewController {
     {
         if(isHorizontal)
         {
-            hLines[row][col] = (currentPlayer == .x ? .x : .o)
+            hLines[row][col] = (currentPlayer == .x) ? .x : .o
         }else
         {
-            vLines[row][col] = (currentPlayer == .x ? .x : .o)
+            vLines[row][col] = (currentPlayer == .x) ? .x : .o
         }
         
         let boxesCreated = didBoxComplete(row: row, col: col, isHorizontal)
         
         if(boxesCreated == 0)
         {
-            currentPlayer = (currentPlayer == .x ? .x : .o)
+            currentPlayer = (currentPlayer == .x) ? .x : .o
         }
         updateMinigamePoints(boxesCreated)
+        updateBoxUI()
     }
     
     func didBoxComplete(row: Int, col: Int, _ isHorizontal: Bool) -> Int
@@ -111,6 +115,11 @@ class DotsNBoxesViewController: BaseViewController {
         }
     }
     
+    func labelAt(row: Int, col: Int) -> UILabel?
+    {
+        return boxLabels.first{$0.tag == (row * 10) + col}
+    }
+    
     func updateMinigamePoints(_ total: Int)
     {
         guard let xPoints = Int(xMinigamePtsLabel.text!), let oPoints = Int(oMinigamePtsLabel.text!) else
@@ -126,6 +135,20 @@ class DotsNBoxesViewController: BaseViewController {
         }
     }
     
+    func updateBoxUI()
+    {
+        for row in 0..<5
+        {
+            for col in 0..<5
+            {
+                if let player = boxes[row][col], let label = labelAt(row: row, col: col)
+                {
+                    label.text = (currentPlayer == .x) ? "X" : "O"
+                    label.textColor = (currentPlayer == .x) ? GamesManager.shared.xColor : GamesManager.shared.oColor
+                }
+            }
+        }
+    }
     
     func didGameEnd()
     {
@@ -143,11 +166,6 @@ class DotsNBoxesViewController: BaseViewController {
         let vc = storyBoard.instantiateViewController(withIdentifier: "Speed Test") as! SpeedTestViewController
         
         navigationController?.setViewControllers([vc], animated: true)
-    }
-    
-    func visualSetup()
-    {
-        
     }
     
     override func viewDidLoad() {
