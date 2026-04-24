@@ -190,11 +190,11 @@ class SpeedTestViewController: BaseViewController {
         {
         case .x:
             xMinigamePoints[self.xMiniPts-1].image = UIImage(systemName: "circlebadge.fill")
-            xMinigamePoints[self.xMiniPts-1].tintColor = gamesManager.shared.xColor
+            xMinigamePoints[self.xMiniPts-1].tintColor = GamesManager.shared.xColor
         
         case .o:
             oMinigamePoints[self.oMiniPts-1].image = UIImage(systemName: "circlebadge.fill")
-            oMinigamePoints[self.oMiniPts-1].tintColor = gamesManager.shared.oColor
+            oMinigamePoints[self.oMiniPts-1].tintColor = GamesManager.shared.oColor
         }
     }
     
@@ -228,8 +228,8 @@ class SpeedTestViewController: BaseViewController {
         settingsButton.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
         settingsButton.tintColor = .gray
         
-        gamePointOLabel.text = String(gamesManager.shared.oGamePts)
-        gamePointXLabel.text = String(gamesManager.shared.xGamePts)
+        gamePointOLabel.text = String(GamesManager.shared.oGamePts)
+        gamePointXLabel.text = String(GamesManager.shared.xGamePts)
         
         showShape()
     }
@@ -237,8 +237,8 @@ class SpeedTestViewController: BaseViewController {
 
     override func applyGradient() {
         BGGradientView.updateColors()
-        playerXNameLabel.textColor = gamesManager.shared.xColor
-        playerONameLabel.textColor = gamesManager.shared.oColor
+        playerXNameLabel.textColor = GamesManager.shared.xColor
+        playerONameLabel.textColor = GamesManager.shared.oColor
     }
 
     
@@ -285,7 +285,7 @@ class SpeedTestViewController: BaseViewController {
     
     func checkGameEnding()
     {
-        if(gamesManager.shared.currentRound>gamesManager.shared.maxRounds)
+        if(GamesManager.shared.currentRound>GamesManager.shared.maxRounds)
         {
             let vc = self.storyBoard.instantiateViewController(withIdentifier: "End Game") as! EndGameViewController
             

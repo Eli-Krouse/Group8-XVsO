@@ -9,7 +9,7 @@ import UIKit
 
 class TicTacToeSettingsViewController: BaseViewController {
 
-    
+    //beta/presentation curtosy button
     @IBAction func goToTicTacToeTapped(_ sender: Any)
     {
         let vc = self.storyBoard.instantiateViewController(withIdentifier: "Tic Tac Toe") as! TicTacToeViewController

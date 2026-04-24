@@ -10,7 +10,7 @@ import UIKit
 class SpeedTestSettingsViewController: BaseViewController {
 
     
-
+    //beta/presentation curtosy button
     @IBAction func goToSpeedTestTapped(_ sender: Any)
     {
         let vc = self.storyBoard.instantiateViewController(withIdentifier: "Speed Test") as! SpeedTestViewController

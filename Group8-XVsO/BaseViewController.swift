@@ -9,11 +9,11 @@ import UIKit
 
 class BaseViewController: UIViewController
 {
-
+    //basic definitions for cleaner code
     let center = NotificationCenter.default
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     
-    
+    //created one observer for all viewDidLoads
     override func viewDidLoad(){
         super.viewDidLoad()
         center.addObserver(self, selector: #selector(applyGradient), name: .updatedGradient, object: nil)
@@ -21,6 +21,7 @@ class BaseViewController: UIViewController
         applyGradient()
     }
     
+    //details in individual ViewControllers
     @objc func applyGradient(){}
     
     func waitTime(_ seconds: Double, code: @escaping () -> Void)
@@ -34,14 +35,14 @@ class BaseViewController: UIViewController
     }
 }
 
-class gamesManager
+//class definition for singleton
+class GamesManager
 {
-    static let shared = gamesManager()
+    static let shared = GamesManager()
     
-    private init(){}
+    private init(){} //makes it so you cant make more GamesManager objects
     
     var xColor: UIColor = .red
-
     var oColor: UIColor = .blue
     
     var xGamePts = 0
@@ -51,11 +52,13 @@ class gamesManager
     var currentRound = 1
 }
 
+// allows for .updatedFradient in NSNotifs
 extension NSNotification.Name
 {
     static let updatedGradient = NSNotification.Name("updatedGradient")
 }
 
+//player enum for cleaner code
 enum Player: String
 {
     case x = "X"
@@ -65,8 +68,8 @@ enum Player: String
     {
         switch(self)
         {
-            case .x: return gamesManager.shared.xColor
-            case .o: return gamesManager.shared.oColor
+            case .x: return GamesManager.shared.xColor
+            case .o: return GamesManager.shared.oColor
         }
     }
 }

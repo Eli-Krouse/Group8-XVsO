@@ -13,34 +13,14 @@ class SettingsViewController: BaseViewController
     let generalSettings = ["General", "Color Scheme"]
     let gameplaySettings = ["All Games", "Tic-Tac-Toe", "Dots-N-Boxes", "Speed Test"]
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
         // Do any additional setup after loading the view.
     }
-    
-    
-    override var prefersStatusBarHidden: Bool
-    {
-        return true
-    }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
+//UI Table extension. classic style. (chevron/arrow changed in detail page)
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -78,6 +58,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource
         return 2
     }
     
+    //no data is passed, so no forces casting (as!)
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         tableView.deselectRow(at: indexPath, animated: true)

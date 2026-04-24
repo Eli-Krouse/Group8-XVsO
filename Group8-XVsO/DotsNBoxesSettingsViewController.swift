@@ -9,7 +9,7 @@ import UIKit
 
 class DotsNBoxesSettingsViewController: BaseViewController {
 
-  
+    //beta/presentation curtosy button
     @IBAction func goToDotsNBoxesTapped(_ sender: Any)
     {
         let vc = self.storyBoard.instantiateViewController(withIdentifier: "Dots N Boxes") as! DotsNBoxesViewController

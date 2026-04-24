@@ -18,9 +18,12 @@ class EndGameViewController: BaseViewController
     
     @IBOutlet weak var stopButton: UIButton!
     
+    //resets current round and sends you to TicTacToe to replay
     @IBAction func replayButtonTapped(_ sender: Any)
     {
-        gamesManager.shared.currentRound = 1
+        GamesManager.shared.currentRound = 1
+        GamesManager.shared.xGamePts = 0
+        GamesManager.shared.oGamePts = 0
         let vc = storyBoard.instantiateViewController(withIdentifier: "Tic Tac Toe") as! TicTacToeViewController
         
         navigationController?.setViewControllers([vc], animated: false)
@@ -30,7 +33,9 @@ class EndGameViewController: BaseViewController
     
     @IBAction func stopButtonTapped(_ sender: Any)
     {
-        gamesManager.shared.currentRound = 1
+        GamesManager.shared.currentRound = 1
+        GamesManager.shared.xGamePts = 0
+        GamesManager.shared.oGamePts = 0
         let vc = storyBoard.instantiateViewController(withIdentifier: "Home") as! HomeViewController
         
         navigationController?.setViewControllers([vc], animated: false)
@@ -45,13 +50,14 @@ class EndGameViewController: BaseViewController
         determineWinner()
     }
     
+    //Applies correct text when the view controller loads in
     func determineWinner()
     {
-        if(gamesManager.shared.xGamePts>gamesManager.shared.oGamePts)
+        if(GamesManager.shared.xGamePts>GamesManager.shared.oGamePts)
         {
             playerOWinLabel.text = "You lost..."
             playerXWinLabel.text = "You Won!"
-        }else if(gamesManager.shared.xGamePts<gamesManager.shared.oGamePts)
+        }else if(GamesManager.shared.xGamePts<GamesManager.shared.oGamePts)
         {
             playerOWinLabel.text = "You Won!"
             playerXWinLabel.text = "You lost..."
@@ -64,7 +70,7 @@ class EndGameViewController: BaseViewController
     
     override func applyGradient()
     {
-        playerOWinLabel.textColor = gamesManager.shared.oColor
-        playerXWinLabel.textColor = gamesManager.shared.xColor
+        playerOWinLabel.textColor = GamesManager.shared.oColor
+        playerXWinLabel.textColor = GamesManager.shared.xColor
     }
 }

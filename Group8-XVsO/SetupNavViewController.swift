@@ -9,6 +9,7 @@ import UIKit
 
 class SetupNavViewController: UINavigationController
 {
+    //gets rid of time, battery, wifi, etc
     override var prefersStatusBarHidden: Bool
     {
         return true

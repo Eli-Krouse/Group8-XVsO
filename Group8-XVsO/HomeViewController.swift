@@ -19,7 +19,7 @@ class HomeViewController: BaseViewController
     
     @IBOutlet weak var oTitleLabel: UILabel!
     
-    
+    //sends you to TicTacToe. Replaces this ViewContorller into the navigationController's root ViewController
     @IBAction func playButtonTapped(_ sender: Any)
     {
         let vc = storyBoard.instantiateViewController(withIdentifier: "Tic Tac Toe") as! TicTacToeViewController
@@ -38,8 +38,8 @@ class HomeViewController: BaseViewController
     
     override func applyGradient() {
         BGGradientView.updateColors()
-        xTitleLabel.textColor = gamesManager.shared.xColor
-        oTitleLabel.textColor = gamesManager.shared.oColor
+        xTitleLabel.textColor = GamesManager.shared.xColor
+        oTitleLabel.textColor = GamesManager.shared.oColor
     }
 }
 

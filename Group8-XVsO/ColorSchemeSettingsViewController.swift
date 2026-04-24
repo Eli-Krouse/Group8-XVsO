@@ -12,24 +12,25 @@ class ColorSchemeSettingsViewController: BaseViewController
     
     @IBOutlet weak var exampleView: GradientView!
     
+    //option buttons allow for an NSNotif to be posted, which is caught by the observer and updates gradients (via apply gradient)
     @IBAction func opt1Button(_ sender: Any)
     {
-        gamesManager.shared.oColor = .red
-        gamesManager.shared.xColor = .blue
+        GamesManager.shared.oColor = .red
+        GamesManager.shared.xColor = .blue
         center.post(name: .updatedGradient, object: nil)
     }
     
     @IBAction func opt2Button(_ sender: Any)
     {
-        gamesManager.shared.oColor = .yellow
-        gamesManager.shared.xColor = .green
+        GamesManager.shared.oColor = .yellow
+        GamesManager.shared.xColor = .green
         center.post(name: .updatedGradient, object: nil)
     }
     
     @IBAction func opt3Button(_ sender: Any)
     {
-        gamesManager.shared.oColor = .systemPink
-        gamesManager.shared.xColor = .purple
+        GamesManager.shared.oColor = .systemPink
+        GamesManager.shared.xColor = .purple
         center.post(name: .updatedGradient, object: nil)
     }
     

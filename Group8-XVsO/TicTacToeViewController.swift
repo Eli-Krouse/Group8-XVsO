@@ -48,7 +48,6 @@ class TicTacToeViewController: BaseViewController {
         
         // update matrix
         titleBoard[index] = currentPlayer.rawValue
-        print(titleBoard)
         
         // update UI
         button.setTitle(currentPlayer.rawValue, for: .normal)
@@ -66,10 +65,12 @@ class TicTacToeViewController: BaseViewController {
                 default:
                     return
             }
+            //update UI
             updateGameVisualization(for: currentPlayer.rawValue)
             waitTime(0.5)
             {
                 self.reset()
+                //check winning status if yes -> move to DotsNBoxes
                 self.didWinGame()
             }
             return
@@ -81,20 +82,20 @@ class TicTacToeViewController: BaseViewController {
 
     }
     
-    
+    //viewDidLoad setup
     override func viewDidLoad() {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
         // Do any additional setup after loading the view.
         settingsButton.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
         settingsButton.tintColor = .gray
-        gamePointOLabel.text = String(gamesManager.shared.oGamePts)
-        gamePointXLabel.text = String(gamesManager.shared.xGamePts)
+        gamePointOLabel.text = String(GamesManager.shared.oGamePts)
+        gamePointXLabel.text = String(GamesManager.shared.xGamePts)
         
         reset()
     }
     
-
+    //returns boolean if minigame won
     func didWinMinigame(for player: String) -> Bool
     {
         for condition in winCondition
@@ -107,16 +108,17 @@ class TicTacToeViewController: BaseViewController {
         return false
     }
 
+    //updates Singleton gamePts, then sends you to DotsNBoxes
     func didWinGame()
     {
         if(xMiniPts == 2)
         {
-            gamesManager.shared.xGamePts += 1
-            gamePointXLabel.text = String(gamesManager.shared.xGamePts)
+            GamesManager.shared.xGamePts += 1
+            gamePointXLabel.text = String(GamesManager.shared.xGamePts)
         }else if(oMiniPts == 2)
         {
-            gamesManager.shared.oGamePts += 1
-            gamePointXLabel.text = String(gamesManager.shared.oGamePts)
+            GamesManager.shared.oGamePts += 1
+            gamePointXLabel.text = String(GamesManager.shared.oGamePts)
 
         }else
         {
@@ -130,6 +132,7 @@ class TicTacToeViewController: BaseViewController {
         
     }
     
+    //resets board
     func reset()
     {
         for button in board
@@ -143,6 +146,7 @@ class TicTacToeViewController: BaseViewController {
         currentPlayer = .x
     }
     
+    //updates the minigame point visualizer
     func updateGameVisualization(for player: String)
     {
         let visIndex = xMiniPts + oMiniPts - 1
@@ -163,10 +167,11 @@ class TicTacToeViewController: BaseViewController {
         }
     }
     
+    //Gradient funciton for GradientView and NSNotificaiton in BaseViewController
     override func applyGradient() {
         BGGradientView.updateColors()
-        playerXNameLabel.textColor = gamesManager.shared.xColor
-        playerONameLabel.textColor = gamesManager.shared.oColor
+        playerXNameLabel.textColor = GamesManager.shared.xColor
+        playerONameLabel.textColor = GamesManager.shared.oColor
         
 
         for (index, button) in board.enumerated()
@@ -174,16 +179,15 @@ class TicTacToeViewController: BaseViewController {
            switch(titleBoard[index])
             {
            case "X":
-               button.backgroundColor = gamesManager.shared.xColor
+               button.backgroundColor = GamesManager.shared.xColor
            case "O":
-               button.backgroundColor = gamesManager.shared.oColor
+               button.backgroundColor = GamesManager.shared.oColor
            default:
                button.backgroundColor = .gray
            }
 
         }
     }
-
 }
 
 

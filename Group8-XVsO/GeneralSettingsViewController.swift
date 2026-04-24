@@ -12,15 +12,16 @@ class GeneralSettingsViewController: BaseViewController
     
     @IBOutlet weak var roundTextField: UITextField!
     
-    
     @IBOutlet weak var endGameButton: UIButton!
     
+    //updates singleton to stepper's value
     @IBAction func roundStepper(_ sender: UIStepper)
     {
         roundTextField.text = "\(Int(sender.value))"
-        gamesManager.shared.maxRounds = Int(sender.value)
+        GamesManager.shared.maxRounds = Int(sender.value)
     }
     
+    //"ends game" just by sending you to EndGameViewController
     @IBAction func endGameTapped(_ sender: Any)
     {
         let alert = UIAlertController(title: "End Game", message: "Are you Sure you want to end the game?", preferredStyle: .alert)
