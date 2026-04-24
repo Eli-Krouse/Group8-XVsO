@@ -30,10 +30,10 @@ class DotsNBoxesViewController: BaseViewController {
     @IBOutlet var boxLabels: [UILabel]!
     
     
-    var hLines: [[LineState]] = Array(repeating: Array(repeating: .empty, count: 6), count: 5)
-    var vLines: [[LineState]] = Array(repeating: Array(repeating: .empty, count: 5), count: 6)
+    var hLines: [[LineState]] = Array(repeating: Array(repeating: .empty, count: 5), count: 6)
+    var vLines: [[LineState]] = Array(repeating: Array(repeating: .empty, count: 6), count: 5)
     var boxes: [[Player?]] = Array(repeating: Array(repeating: nil, count: 5), count: 5)
-    var buttontoLineDict: [UIButton: LinePosition] = [:]
+    var labelGrid: [[UILabel]] = Array(repeating: Array(repeating: UILabel(), count: 5), count: 5)
     
     var currentPlayer: Player = .x
 
@@ -45,9 +45,9 @@ class DotsNBoxesViewController: BaseViewController {
             return
         }
         let position = linePosition(of: button)
-        drawLine(row: position.row, col: position.col, position.isHorizontal)
-        button.tintColor = currentPlayer.color
+        button.layer.backgroundColor = currentPlayer.color.cgColor
         button.isUserInteractionEnabled = false
+        drawLine(row: position.row, col: position.col, position.isHorizontal)
     }
     
     func drawLine(row: Int, col: Int, _ isHorizontal: Bool)
@@ -62,12 +62,13 @@ class DotsNBoxesViewController: BaseViewController {
         
         let boxesCreated = didBoxComplete(row: row, col: col, isHorizontal)
         
+        updateMinigamePoints(boxesCreated)
+        didGameEnd()
+        
         if(boxesCreated == 0)
         {
-            currentPlayer = (currentPlayer == .x) ? .x : .o
+            currentPlayer = (currentPlayer == .x) ? .o : .x
         }
-        updateMinigamePoints(boxesCreated)
-        updateBoxUI()
     }
     
     func didBoxComplete(row: Int, col: Int, _ isHorizontal: Bool) -> Int
@@ -87,7 +88,7 @@ class DotsNBoxesViewController: BaseViewController {
     
     func checkBox(top: Int, left: Int) -> Int
     {
-        guard top >= 0, top < 5, left >= 0, left < 5, boxes[top][left] == nil, top+1 < vLines.count, left+1 < vLines[0].count else
+        guard top >= 0, top < 5, left >= 0, left < 5, boxes[top][left] == nil, top+1 < hLines.count, left+1 < vLines[0].count else
         {
             return 0
         }
@@ -97,6 +98,10 @@ class DotsNBoxesViewController: BaseViewController {
         if(surroundingLines.allSatisfy { $0 != .empty})
         {
             boxes[top][left] = currentPlayer
+            
+            labelGrid[top][left].text = (currentPlayer == .x) ? "X" : "O"
+            labelGrid[top][left].textColor = currentPlayer.color
+            
             return 1
         }
         return 0
@@ -115,38 +120,20 @@ class DotsNBoxesViewController: BaseViewController {
         }
     }
     
-    func labelAt(row: Int, col: Int) -> UILabel?
-    {
-        return boxLabels.first{$0.tag == (row * 10) + col}
-    }
-    
     func updateMinigamePoints(_ total: Int)
     {
-        guard let xPoints = Int(xMinigamePtsLabel.text!), let oPoints = Int(oMinigamePtsLabel.text!) else
+        guard total > 0 else
         {
             return
         }
         switch(currentPlayer)
         {
             case .x:
-                xMinigamePtsLabel.text = "\(xPoints)"
+                let points = (Int(xMinigamePtsLabel.text!) ?? 0) + total
+                xMinigamePtsLabel.text = "\(points)"
             case .o:
-                oMinigamePtsLabel.text = "\(oPoints)"
-        }
-    }
-    
-    func updateBoxUI()
-    {
-        for row in 0..<5
-        {
-            for col in 0..<5
-            {
-                if let player = boxes[row][col], let label = labelAt(row: row, col: col)
-                {
-                    label.text = (player == .x) ? "X" : "O"
-                    label.textColor = (player == .x) ? GamesManager.shared.xColor : GamesManager.shared.oColor
-                }
-            }
+            let points = (Int(oMinigamePtsLabel.text!) ?? 0) + total
+                oMinigamePtsLabel.text = "\(points)"
         }
     }
     
@@ -174,6 +161,14 @@ class DotsNBoxesViewController: BaseViewController {
         // Do any additional setup after loading the view.
         settingsButton.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
         settingsButton.tintColor = .gray
+        
+        for label in boxLabels
+        {
+            let row = label.tag / 10
+            let col = label.tag % 10
+            labelGrid[row][col] = label
+        }
+        
         gamePointOLabel.text = String(GamesManager.shared.oGamePts)
         gamePointXLabel.text = String(GamesManager.shared.xGamePts)
         
