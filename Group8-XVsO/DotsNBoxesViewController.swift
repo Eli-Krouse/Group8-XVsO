@@ -46,7 +46,7 @@ class DotsNBoxesViewController: BaseViewController {
         }
         let position = linePosition(of: button)
         drawLine(row: position.row, col: position.col, position.isHorizontal)
-        button.backgroundColor = currentPlayer.color
+        button.tintColor = currentPlayer.color
         button.isUserInteractionEnabled = false
     }
     
@@ -143,8 +143,8 @@ class DotsNBoxesViewController: BaseViewController {
             {
                 if let player = boxes[row][col], let label = labelAt(row: row, col: col)
                 {
-                    label.text = (currentPlayer == .x) ? "X" : "O"
-                    label.textColor = (currentPlayer == .x) ? GamesManager.shared.xColor : GamesManager.shared.oColor
+                    label.text = (player == .x) ? "X" : "O"
+                    label.textColor = (player == .x) ? GamesManager.shared.xColor : GamesManager.shared.oColor
                 }
             }
         }
